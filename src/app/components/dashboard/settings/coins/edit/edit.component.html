@@ -1,0 +1,94 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <app-back-btn></app-back-btn>
+    <h1>Edit Coin</h1>
+    <div class="admin-page-title-actions">
+
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          Select Currency
+        </button>
+        <div class="dropdown-menu">
+
+          <a class="dropdown-item  active " href="#">
+            QTUM
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.admin-page-title-actions -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+
+<div class="admin-content">
+  <div class="container-fluid">
+
+    <div class="box">
+      <div class="box-inner">
+        <div class="box-title">
+          <h2>Edit Coin</h2>
+        </div>
+        <!-- /.box-title -->
+        <div class="row">
+
+
+          <div class="col-md-8 col-md-offset-2">
+
+            <form>
+
+              <input type="hidden" name="_token" value="RxP5kIXt1W0L9N4ySpClVb7CUE0umBWaVd3uZYpD">
+              <input type="hidden" name="_method" value="PUT">
+
+              <div class="form-group row">
+                <label for="name" class="col-3 col-form-label">Coin Name</label>
+                <div class="col-9">
+                  <input type="text" name="name" id="name" class="form-control" value="QTUM">
+
+
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="shortname" class="col-3 col-form-label">Coin Short Name</label>
+                <div class="col-9">
+                  <input type="text" name="shortname" id="shortname" class="form-control" value="QTUM">
+
+
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <label for="status" class="col-3 col-form-label">Icon</label>
+                <div class="col-6">
+                  <input type="hidden" name="icon_orig" value="63f9e77f-83d5-4331-a5cd-65f6da0e581a.png">
+                  <input type="file" name="icon" class="form-control-file">
+
+                </div>
+                <div class="col-3">
+                  <img src="http://51.75.205.218:3001/images/63f9e77f-83d5-4331-a5cd-65f6da0e581a.png" alt="" class="img-responsive"
+                    style="height: 50px; width: auto;">
+                </div>
+              </div>
+              <hr>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" >Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-inner -->
+    </div>
+    <!-- /.box -->
+
+    <!-- /.box -->
+  </div>
+  <!-- /.container -->
+</div>

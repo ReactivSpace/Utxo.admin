@@ -1,0 +1,81 @@
+<!-- Table -->
+<div *ngIf="DataShow">
+  <div *ngIf="!DataArry">
+    <app-no-data></app-no-data>
+  </div>
+  <div *ngIf="DataArry">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Account</th>
+              <th>Address</th>
+              <th>Wallet<br>Balance</th>
+              <th>Discrepancy</th>
+              <th>Verified</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of Users; let i = index">
+              <td>{{data.userId}}</td>
+              <td>{{data.Account}}</td>
+              <td>{{data.address}}</td>
+              <td>{{data.balance}}</td>
+              <td>{{data.discrepency}}</td>
+              <td>
+                <span class="red" *ngIf="data.emailVerified === 0">
+                  <i class="far fa-times-circle"></i>
+                </span>
+                <span class="green" *ngIf="data.emailVerified === 1">
+                  <i class="far fa-check-circle"></i>
+                </span>
+                <!-- {{data.emailVerified}} -->
+              </td>
+              <td>
+                <span class="red" *ngIf="data.status === 0">
+                  <i class="far fa-times-circle"></i>
+                </span>
+                <span class="green" *ngIf="data.status === 1">
+                  <i class="far fa-check-circle"></i>
+                </span>
+                <!-- {{data.status}} -->
+
+              </td>
+              <td>
+                <div class="btn-group show" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-expanded="true">
+                    Actions
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="[data.userId]">View Details &nbsp;</a>
+                    <a class="dropdown-item disabled" disabled [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>No</th>
+              <th>Account</th>
+              <th>Address</th>
+              <th>Wallet<br>Balance</th>
+              <th>Discrepancy</th>
+              <th>Verified</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
+        </table>
+  </div>
+</div>
+<div *ngIf="!DataShow">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="DataError">
+  <app-api-error></app-api-error>
+</div>

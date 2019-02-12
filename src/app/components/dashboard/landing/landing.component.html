@@ -1,0 +1,188 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <app-back-btn></app-back-btn>
+    <h1>Dashboard - QTUM</h1>
+    <div class="admin-page-title-actions">
+
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          Select Currency
+        </button>
+        <div class="dropdown-menu">
+
+          <a class="dropdown-item" *ngFor="let data of CoinList" (click)="SetCoin(data.id, data.name)" >
+            {{data.name}}
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.admin-page-title-actions -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- <app-balances [CoinID]="Value"></app-balances> -->
+<div class="balances">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="b-box blue">
+          <div class="stat-box-icon"><i class="fa fa-server"></i></div>
+          <h1>{{ServerBalance}}</h1>
+          <p>Server Balance</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box green">
+          <div class="stat-box-icon"><i class="fa fa-users"></i></div>
+          <h1>{{UsersBalance}}</h1>
+          <p>Total User Balance</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box yellow">
+          <div class="stat-box-icon"><i class="fa fa-database"></i></div>
+          <h1>{{Commission}}</h1>
+          <p>Total Profit</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box gray">
+          <div class="stat-box-icon"><i class="fa fa-folder"></i></div>
+          <h1>{{ColdWallet}}</h1>
+          <p>Cold Wallet</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box purple">
+          <div class="stat-box-icon"><i class="fa fa-cogs"></i></div>
+          <h1>{{NetWorkFee}}</h1>
+          <p>Network Fee</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box mint">
+          <div class="stat-box-icon"><i class="fa fa-file"></i></div>
+          <h1>{{ColdWalletFee}}</h1>
+          <p>Cold Wallet Fee</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box red">
+          <div class="stat-box-icon"><i class="fa fa-file"></i></div>
+          <h1>{{Discrepancy}}</h1>
+          <p>Discrepancy</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="b-box dark-green">
+          <div class="stat-box-icon"><i class="fa fa-file"></i></div>
+          <h1>{{WithDrawal}}</h1>
+          <p>Total Withdrawl Wallet</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> <!-- balances -->
+
+<div class="table-design">
+  <div class="container-fluid">
+    <h5>Last Regeister Users</h5>
+  </div>
+  <hr>
+  <div class="container-fluid">
+    <!-- <app-last-login></app-last-login> -->
+    <!-- Table -->
+<div *ngIf="DataShow">
+  <div *ngIf="!DataArry">
+    <app-no-data></app-no-data>
+  </div>
+  <div *ngIf="DataArry">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Account</th>
+              <th>Address</th>
+              <th>Wallet<br>Balance</th>
+              <th>Discrepancy</th>
+              <th>Verified</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of Users; let i = index">
+              <td>{{data.userId}}</td>
+              <td>{{data.Account}}</td>
+              <td>{{data.address}}</td>
+              <td>{{data.balance}}</td>
+              <td>{{data.discrepency}}</td>
+              <td>
+                <span class="red" *ngIf="data.emailVerified === 0">
+                  <i class="far fa-times-circle"></i>
+                </span>
+                <span class="green" *ngIf="data.emailVerified === 1">
+                  <i class="far fa-check-circle"></i>
+                </span>
+                <!-- {{data.emailVerified}} -->
+              </td>
+              <td>
+                <span class="red" *ngIf="data.status === 0">
+                  <i class="far fa-times-circle"></i>
+                </span>
+                <span class="green" *ngIf="data.status === 1">
+                  <i class="far fa-check-circle"></i>
+                </span>
+                <!-- {{data.status}} -->
+
+              </td>
+              <td>
+                <div class="btn-group show" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-expanded="true">
+                    Actions
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="[data.userId]">View Details &nbsp;</a>
+                    <a class="dropdown-item disabled" disabled [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>No</th>
+              <th>Account</th>
+              <th>Address</th>
+              <th>Wallet<br>Balance</th>
+              <th>Discrepancy</th>
+              <th>Verified</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
+        </table>
+  </div>
+</div>
+<div *ngIf="!DataShow">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="DataError">
+  <app-api-error></app-api-error>
+</div>
+
+  </div>
+</div>

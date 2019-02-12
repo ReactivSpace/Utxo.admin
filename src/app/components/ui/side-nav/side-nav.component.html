@@ -1,0 +1,70 @@
+<div class="admin-sidebar" style="">
+  <div class="admin-sidebar-header">
+    <div class="admin-sidebar-logo">
+      <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img src="assets/imgs/logo/white_logo.png" class="svg" alt="Home">
+      </a>
+    </div>
+    <!-- /.admin-sidebar-logo -->
+  </div>
+
+  <!-- /.admin-sidebar-header -->
+
+  <div class="admin-sidebar-content">
+    <h3>General Objects</h3>
+    <ul class="nav flex-column">
+      <li class="nav-item ">
+        <a [routerLink]="['dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link ">
+          <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link ">
+            <i class="fas fa-users"></i><span>Users</span>
+        </a>
+      </li>
+      <li class="nav-item has-sub-menu">
+        <a [routerLink]="['settings']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link ">
+            <i class="fas fa-cogs"></i><span>Settings</span>
+        </a>
+        <ul>
+          <li><a [routerLink]="['settings/coins']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Coins</a></li>
+          <li><a [routerLink]="['settings/cold-wallet']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Cold Wallet</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-sub-menu">
+        <a [routerLink]="['transactions']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+            <i class="fas fa-exchange-alt"></i><span>Transactions</span>
+        </a>
+        <ul>
+          <li><a [routerLink]="['transactions/deposit']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Deposit History</a></li>
+          <li><a [routerLink]="['transactions/withdraw']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Withdraw History</a></li>
+          <li><a [routerLink]="['transactions/commission']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Commission History</a></li>
+          <li><a [routerLink]="['transactions/all']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">All Transactions History</a></li>
+          <li><a [routerLink]="['transactions/pending']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pending Transactions</a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item ">
+        <a [routerLink]="['support']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link ">
+            <i class="fas fa-life-ring"></i><span>Support</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link pointer" (click)="LogMeOut()" >
+            <i class="fas fa-lock"></i><span>Logout</span>
+        </a>
+      </li>
+    </ul>
+    <!-- /.nav -->
+  </div>
+  <!-- /.admin-sidebar-content -->
+  <div class="admin-sidebar-footer">
+    <strong>Need a help?</strong>
+    <span>Call us +000-000-000</span>
+  </div>
+  <!-- /.admin-sidebar-footer -->
+</div>

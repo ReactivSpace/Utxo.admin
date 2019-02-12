@@ -1,0 +1,70 @@
+.box {
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(50, 50, 50, 0.12);
+  border-radius: 2px;
+  margin: 0 0 30px 0;
+  padding: 20px;
+}
+
+.box::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.box-small {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(50, 50, 50, 0.12);
+  margin: 0 0 30px 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.box-small h3 {
+  margin: 0;
+  padding: 16px 0;
+}
+
+.box-title {
+  border-bottom: 1px solid #eeeeee;
+  margin: 0 -20px 20px -20px;
+  padding: 0 16px 20px 16px;
+}
+
+.box-title::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.box-title h2 {
+  float: left;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.box-title h3 {
+  float: left;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.box-title p {
+  clear: both;
+  display: block;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+.box-title .btn-group {
+  float: right;
+  margin: -7px 0;
+}
+
+.box-title .btn {
+  font-size: 12px;
+  line-height: 32px;
+}

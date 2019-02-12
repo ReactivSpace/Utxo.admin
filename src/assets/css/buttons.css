@@ -1,0 +1,231 @@
+.btn {
+  background-color: #323232;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 35px;
+  padding: 0 16px;
+  text-shadow: none;
+}
+
+.btn:active,
+.btn:active:focus,
+.btn:focus,
+.btn:hover {
+  border: 0;
+  box-shadow: none;
+  color: #fff;
+  outline: none;
+}
+
+.btn .fa {
+  margin: 0 8px 0 -4px;
+}
+
+.btn-primary {
+  background-color: #536ed6;
+  color: #fff;
+}
+
+.btn-primary:active,
+.btn-primary:active:focus,
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: #009467;
+  color: #fff;
+}
+
+.btn.btn-secondary,
+.filter.filter-primary .btn {
+  background-color: #eeeeee;
+  color: #7f7f7f;
+}
+
+.btn.btn-secondary:active,
+.filter.filter-primary .btn:active,
+.btn.btn-secondary:active:focus,
+.filter.filter-primary .btn:active:focus,
+.btn.btn-secondary:focus,
+.filter.filter-primary .btn:focus,
+.btn.btn-secondary:hover,
+.filter.filter-primary .btn:hover {
+  background-color: #e1e1e1;
+  color: #323232;
+}
+
+.btn.btn-secondary .fa,
+.filter.filter-primary .btn .fa {
+  color: #b2b2b2;
+}
+
+.btn.btn-success {
+  background-color: #14AD6F;
+  color: #fff;
+}
+
+.btn.btn-success:active,
+.btn.btn-success:active:focus,
+.btn.btn-success:focus,
+.btn.btn-success:hover {
+  background-color: #119660;
+  color: #fff;
+}
+
+.btn.btn-success .fa {
+  color: #fff;
+}
+
+.btn.btn-white {
+  background-color: #fff;
+  color: rgba(50, 50, 50, 0.8);
+}
+
+.btn.btn-white:active,
+.btn.btn-white:active:focus,
+.btn.btn-white:focus,
+.btn.btn-white:hover {
+  background-color: #fff;
+  color: rgba(50, 50, 50, 0.8);
+}
+
+.btn.btn-white .fa {
+  color: rgba(50, 50, 50, 0.8);
+}
+
+.btn.btn-simple {
+  background-color: transparent;
+  color: #536ed6;
+  font-weight: 500;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn.btn-simple:active,
+.btn.btn-simple:active:focus,
+.btn.btn-simple:focus,
+.btn.btn-simple:hover {
+  background-color: transparent;
+  color: #536ed6;
+}
+
+.show .btn-primary.dropdown-toggle {
+  background-color: #009467;
+}
+
+.show .btn-secondary.dropdown-toggle,
+.show .filter.filter-primary .dropdown-toggle.btn,
+.filter.filter-primary .show .dropdown-toggle.btn {
+  background-color: #e1e1e1;
+  color: #919191;
+}
+
+.btn-group .dropdown-menu {
+  background-color: #323232;
+  border: 0;
+  border-radius: 2px 0 2px 2px;
+  box-shadow: none;
+  left: auto;
+  margin: 10px 0 0 0;
+  padding: 0;
+  right: 0;
+}
+
+.form-group button {
+  margin-right: 10px;
+}
+
+.btn-group .dropdown-menu:before {
+  border: 2px solid transparent;
+  border-bottom-color: #323232;
+  border-right-color: #323232;
+  content: '';
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 0;
+}
+
+.btn-group .dropdown-menu .dropdown-item {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  padding: 8px 12px;
+  text-align: right;
+}
+
+.btn-group .dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn-group .dropdown-menu .dropdown-item:last-child {
+  border-bottom: 0;
+}
+
+.btn-xl {
+  height: 44px;
+  font-size: 14px;
+}
+
+.buttons {
+  padding: 20px 0 0 140px;
+}
+
+
+.discrepancy_range {
+  width: 80px;
+  float: left;
+
+}
+
+.button_inc {
+  margin: 0 0 0 5px;
+  text-indent: -9999px;
+  cursor: pointer;
+  width: 10px;
+  height: 15px;
+  float: left;
+  text-align: center;
+  /*background: url(../images/buttons.png) no-repeat;*/
+}
+
+.discrepancy_label {
+  line-height: 35px;
+  vertical-align: middle;
+  float: left;
+  margin-right: 5px;
+}
+
+
+.button_inc1 {
+  width: 10px;
+  line-height: 15px;
+  height: 100%;
+  color: #8186e3;
+
+  margin: 0 auto;
+}
+
+.button_holder {
+  width: 10px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 5px;
+
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+a.button_holder:hover,
+a.button_holder:visited,
+a.button_holder:active,
+a.button_holder:link {
+  text-decoration: none;
+}

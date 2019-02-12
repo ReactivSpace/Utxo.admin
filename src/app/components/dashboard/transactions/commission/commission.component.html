@@ -1,0 +1,77 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <app-back-btn></app-back-btn>
+    <h1>Commission History - QTUM</h1>
+    <div class="admin-page-title-actions">
+      <button type="submit" class="btn btn-danger"><i class="fas fa-download"></i> Export All</button>
+    </div>
+    <!-- /.admin-page-title-actions -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<div class="admin-content">
+  <div class="container-fluid">
+
+    <div class="table-header clearfix">
+      <div class="table-header-count">
+        <h3>Commission History</h3>
+      </div>
+      <!-- /.table-header-count -->
+      <div class="table-header-actions" hidden>
+        <h3>Total Commission: <span class="total_label"> 0.00060000 QTUM</span></h3>
+      </div>
+      <!-- /.table-header-actions -->
+    </div>
+    <!-- table -->
+    <div *ngIf="DataShow">
+      <div *ngIf="!DataArry">
+        <app-no-data></app-no-data>
+      </div>
+      <div *ngIf="DataArry">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Receiver Address</th>
+              <th>Sender Address</th>
+              <th>Fee</th>
+              <th>Status</th>
+              <th>Date Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of Data; let i = index">
+              <td>{{data.id}}</td>
+              <td>{{data.reciverAddress}}</td>
+              <td>{{data.senderAddress}}</td>
+              <td>{{data.fee}}</td>
+              <td>{{data.status}}</td>
+              <td>{{data.timeStamp}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>No</th>
+              <th>Account</th>
+              <th>Address</th>
+              <th>Currency</th>
+              <th>Wallet<br>Balance</th>
+              <th>Discrepancy</th>
+              <th>Verified</th>
+              <th>Restricted</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="!DataShow && !DataLoaded">
+      <app-loading></app-loading>
+    </div>
+
+    <div *ngIf="DataLoaded">
+      <app-no-data></app-no-data>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <flash-messages></flash-messages>
+    <app-back-btn></app-back-btn>
+    <h1>Pending History - QTUM</h1>
+    <div class="admin-page-title-actions" hidden>
+      <button type="submit" class="btn btn-danger"><i class="fas fa-download"></i> Export All</button>
+    </div>
+    <!-- /.admin-page-title-actions -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<div class="admin-content">
+  <div class="container-fluid">
+
+    <div class="table-header clearfix">
+      <div class="table-header-count">
+        <h3>Pending Transactions</h3>
+      </div>
+      <!-- /.table-header-count -->
+      <div class="table-header-actions">
+
+      </div>
+      <!-- /.table-header-actions -->
+    </div>
+
+
+
+    <!-- table -->
+    <div *ngIf="DataShow">
+      <div *ngIf="!DataArry">
+        <app-no-data></app-no-data>
+      </div>
+      <div *ngIf="DataArry">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sender Address</th>
+              <th>Receiver Address</th>
+              <th>Amount</th>
+              <th>Fee</th>
+              <th>Status</th>
+              <th>Date Time</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of Data">
+              <td>{{data.id}}</td>
+              <td>{{data.senderAddress}}</td>
+              <td>{{data.reciverAddress}}</td>
+              <td>{{data.amount}}</td>
+              <td>{{data.fee}}</td>
+              <td>{{data.status}}</td>
+              <td>{{data.timeStamp}}</td>
+              <td>
+                <div class="table-header-actions">
+                  <button type="button" data-toggle="modal" [attr.data-target]="'#SendModal-' + data.id" class="btn btn-primary"><i
+                      class="fas fa-check"></i>
+                    Approve</button>
+                  <div class="modal fade" id="SendModal-{{data.id}}" tabindex="-1" role="dialog" aria-labelledby="SendModalTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="SendModalTitle">Approve This Transaction</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form [formGroup]="ApproveForm">
+                            <div class="form-group">
+                              <label>Enter Private Key</label>
+                              <input type="text" placeholder="Private Key" formControlName="PrivateKey" class="form-control"
+                                #privateKey />
+                            </div>
+                            <div class="form-group">
+                              <label>To</label>
+                              <input type="text" placeholder="Receiver Address" value="{{data.reciverAddress}}" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>From</label>
+                              <input type="text" placeholder="Sender Address" value="{{data.senderAddress}}" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Amount</label>
+                              <input type="text" placeholder="Amount" value="{{data.amount}}" class="form-control" />
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" (click)="Accept(data.id, data.amount, data.senderAddress, data.reciverAddress, privateKey.value, data.transactionType)"
+                                class="btn btn-primary" data-dismiss="modal">Approve</button>
+                            </div>
+
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" (click)="Reject(data.id, data.amount, data.senderAddress)" class="btn btn-danger"><i
+                      class="fas fa-times"></i>
+                    Reject</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>ID</th>
+              <th>Sender Address</th>
+              <th>Receiver Address</th>
+              <th>Amount</th>
+              <th>Fee</th>
+              <th>Status</th>
+              <th>Date Time</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="!DataShow && !DataLoaded">
+      <app-loading></app-loading>
+    </div>
+
+    <div *ngIf="DataLoaded">
+      <app-no-data></app-no-data>
+    </div>
+  </div>
+</div>

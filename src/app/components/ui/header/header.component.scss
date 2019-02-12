@@ -1,0 +1,231 @@
+.admin-header {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+  line-height: 60px;
+  position: relative;
+  z-index: 10;
+  height: 60px;
+}
+
+.admin-header .nav {
+  float: left;
+}
+
+.admin-header .nav .nav-item:first-child>.nav-link {
+  padding-left: 0;
+}
+
+.admin-header-search {
+  float: left;
+  margin: 10px 30px 0 30px;
+  width: 280px;
+}
+
+.admin-header-avatar {
+  cursor: pointer;
+  float: right;
+  position: relative;
+}
+
+.admin-header-avatar:hover .admin-header-avatar-menu {
+  opacity: 1;
+  transition: all .4s ease;
+  visibility: visible;
+}
+
+.admin-header-avatar-image {
+  background-color: #eeeeee;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  display: inline-block;
+  height: 32px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 32px;
+}
+
+.admin-header-avatar-name {
+  color: #7f7f7f;
+  font-size: 13px;
+  font-weight: 400;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.admin-header-avatar-name .fa {
+  color: #b2b2b2;
+  font-size: 9px;
+  margin: 0 0 0 10px;
+  vertical-align: 1px;
+}
+
+.admin-header-avatar-menu {
+  background-color: #323232;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+  width: 160px;
+}
+
+.admin-header-avatar-menu:before {
+  border: 2px solid transparent;
+  border-bottom-color: #323232;
+  border-right-color: #323232;
+  content: '';
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 0;
+}
+
+.admin-header-avatar-menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-header-avatar-menu li:last-child {
+  border-bottom: 0;
+}
+
+.admin-header-avatar-menu a {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 12px;
+  line-height: 35px;
+  margin: 0;
+  padding: 0 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.admin-header-avatar-menu a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-header-sidebar-toggle {
+  float: left;
+  margin-left: 0;
+  margin-right: 30px;
+}
+
+.admin-header-actions {
+  float: right;
+  margin: 0 16px 0 0;
+}
+
+.admin-header-action {
+  float: right;
+  line-height: 60px;
+}
+
+.admin-header-action a {
+  border-right: 1px solid #eeeeee;
+  color: #bebebe;
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 15px;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.admin-header-action a .fa {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.admin-header-action a:hover {
+  color: #536ed6;
+}
+
+.admin-header-action a .active {
+  background-color: #F74949;
+  border-radius: 50%;
+  display: block;
+  height: 4px;
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  width: 4px;
+}
+
+.admin-header-action:first-child a {
+  border-right: 0;
+}
+
+.admin-page-title {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+  margin: 0 0 40px 0;
+  padding: 22px 0;
+  position: relative;
+  z-index: 9;
+}
+
+.admin-page-title h1 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.admin-page-title h1 small {
+  color: #b2b2b2;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .admin-page-title h1 small {
+    display: none;
+  }
+}
+
+.admin-page-title-back {
+  border: 2px solid #eeeeee;
+  border-radius: 50%;
+  color: #d5d5d5;
+  display: inline-block;
+  font-size: 11px;
+  height: 28px;
+  line-height: 20px;
+  margin: 0 13px 0 0;
+  padding: 2px 6px;
+  text-align: center;
+  transition: all .2s ease;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.admin-page-title-back:hover {
+  border-color: #536ed6;
+}
+
+.admin-page-title-actions {
+  float: right;
+}
+
+.admin-page-title-actions .btn {
+  line-height: 32px;
+  font-size: 12px;
+  margin: 3px 10px 0 0;
+}
+
+.admin-page-title-actions .btn:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,54 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <app-back-btn></app-back-btn>
+    <h1>Restrict User</h1>
+    <!-- /.admin-page-title-actions -->
+  </div>
+</div>
+<!-- /.container-fluid -->
+<div class="admin-content">
+  <div class="container-fluid">
+
+    <div class="box">
+      <div class="box-inner">
+        <div class="box-title">
+          <h2>Set Restriction - user name</h2>
+        </div>
+        <!-- /.box-title -->
+        <div class="row">
+
+
+          <div class="col-md-8 col-md-offset-2">
+
+            <p>Setting restriction will lock the user to its limited sending transaction.</p>
+
+            <form>
+              <div class="form-group row">
+                <label for="network" class="col-3 col-form-label">Restriction Type</label>
+                <div class="col-9">
+                  <select class="form-control" name="status" id="exampleSelect1">
+                    <option value="0" selected="">No Restriction</option>
+                    <option value="1">Lock as Percent (%)</option>
+                    <option value="2">Lock As Date Set</option>
+                    <option value="3">All Restrictions</option>
+                    <option value="4">Total Lock</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form_handle"></div>
+            </form>
+          </div>
+        </div>
+
+
+        <hr>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-danger" >Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.box-inner -->
+</div>

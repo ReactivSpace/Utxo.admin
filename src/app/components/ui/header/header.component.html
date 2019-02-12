@@ -1,0 +1,32 @@
+<div class="admin-header">
+  <div class="container-fluid">
+    <div class="admin-header-sidebar-toggle toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="primary-nav-wrapper">
+
+    </div>
+    <!-- /.primary-nav-wrapper -->
+    <div class="admin-header-avatar">
+
+      <span class="admin-header-avatar-name"><i class="fa fa-user"></i>Welcome Admin |  <i class="fas fa-chevron-down"></i></span>
+      <ul class="admin-header-avatar-menu">
+        <li><a [routerLink]="['profile']">Your Profile</a></li>
+        <li><a [routerLink]="['profile/change-password']">Change Password</a></li>
+        <li>
+          <a href="" class="pointer" (click)="LogMeOut()">
+            Sign Out</a>
+        </li>
+      </ul>
+
+
+      <!-- /.admin-header-avatar-menu -->
+    </div>
+    <!-- /.admin-header-avatar -->
+
+    <!-- /.admin-header-actions -->
+  </div>
+  <!-- /.container -->
+</div>

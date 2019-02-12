@@ -1,0 +1,227 @@
+@media (max-width: 991px) {
+  .table-wrapper {
+    /* background-image: linear-gradient(to top left, #f9f9f9, #f9f9f9), radial-gradient(100% 50%, rgba(0, 0, 0, 0.12), transparent 50%), linear-gradient(to top right, #f9f9f9, #f9f9f9), radial-gradient(100% 50%, rgba(0, 0, 0, 0.12), transparent 50%); */
+    background-attachment: local, scroll, local, scroll;
+    background-position: left top, left top, right top, right top;
+    background-repeat: no-repeat;
+    background-size: 12px 100%, 12px 100%, 12px 100%, 12px 100%;
+    margin: 0;
+    overflow-x: auto;
+  }
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.table {
+  background-color: #fff;
+  margin: 0 0 30px 0;
+}
+
+.box .table {
+  margin: -21px -20px -20px -20px;
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+}
+
+.box .table.table-bordered {
+  margin: -21px -21px -21px -21px;
+  max-width: calc(100% + 42px);
+  width: calc(100% + 42px);
+}
+
+.table th {
+  color: #7f7f7f;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table th,
+.table td {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.table h2 {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table h2 img {
+  display: inline-block;
+  height: 28px;
+  margin: 0 10px 0 0;
+  max-height: inherit;
+  vertical-align: middle;
+  width: auto;
+}
+
+.table h2 a {
+  color: #656565;
+}
+
+.table h2 a:hover {
+  color: #536ed6;
+  text-decoration: none;
+}
+
+.table h2 span {
+  color: #b2b2b2;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 5px 0 0 0;
+  vertical-align: middle;
+}
+
+.table img {
+  display: block;
+  max-height: 24px;
+}
+
+.table .btn {
+  font-size: 12px;
+  line-height: 32px;
+}
+
+.table .tag {
+  margin: 0;
+}
+
+.table .checkbox-wrapper {
+  margin: 0;
+}
+
+.table .min-width {
+  width: 1px;
+}
+
+.table .center {
+  text-align: center;
+}
+
+.table .no-wrap {
+  white-space: nowrap;
+}
+
+.table .small {
+  color: #7f7f7f;
+  font-size: 12px;
+}
+
+.table .title {
+  white-space: nowrap;
+}
+
+.table .price,
+.table .number {
+  color: #7f7f7f;
+  font-style: italic;
+  text-align: right;
+}
+
+.table .id {
+  color: #b2b2b2;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.table .status {
+  text-align: center;
+}
+
+.table .status .fa {
+  font-size: 10px;
+}
+
+.table .status .fa-check {
+  color: #14AD6F;
+}
+
+.table .status .fa-times {
+  color: #F74949;
+}
+
+.table .label:before {
+  background-color: #323232;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 4px;
+  margin: 0 6px 0 0;
+  vertical-align: 2px;
+  width: 4px;
+}
+
+.table .label.label-success:before {
+  background-color: #14AD6F;
+}
+
+.table .label.label-danger:before {
+  background-color: #F74949;
+}
+
+.table .separator {
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #7f7f7f;
+  font-size: 12px;
+}
+
+.table thead th {
+  border-bottom-width: 1px;
+  position: relative;
+}
+
+.table thead th:after {
+  background-color: #eceeef;
+  bottom: 1px;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.table-header {
+  margin: 0 0 15px 0;
+}
+
+.table-header-count {
+  color: #7f7f7f;
+  float: left;
+  line-height: 32px;
+}
+
+.table-header-count strong {
+  color: #323232;
+}
+
+.table-header-actions {
+  float: right;
+}
+
+.table-header-actions .btn {
+  font-size: 12px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 10px 0 0;
+}
+
+.table-header-actions .btn:last-child {
+  margin-right: 0;
+}

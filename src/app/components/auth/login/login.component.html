@@ -1,0 +1,43 @@
+<div class="auth-area">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <img src="/assets/imgs/logo/logo_blue.png" class="img-fluid mx-auto w-50">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+
+                <h5 class="card-title text-center">Admin Login</h5>
+                <hr class="my-4">
+                <form class="form-signin" [formGroup]="LoginForm" novalidate>
+                  <div class="form-label-group">
+                    <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email"
+                      #email>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" formControlName="password" class="form-control"
+                      placeholder="Password" #password>
+                  </div>
+                  <a [routerLink]="['/auth/forgot']" hidden>Fogot Your Password?</a>
+                  <flash-messages></flash-messages>
+                  <button [disabled]="LoginForm.pristine || LoginForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-light"
+                    type="button" (click)="logMeIn(email.value, password.value)">
+                    Login
+                  </button>
+                  <!-- <p class="text-right forget-pass" data-toggle="modal" data-target="#forGetPassModal">Forget Password?</p> -->
+                  <hr class="my-4">
+                  <p hidden> <a [routerLink]="['/auth/register']">Register</a>
+                    if you don’t have an account</p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,576 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.alert {
+  position: fixed !important;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0px solid transparent !important;
+  border-radius: .25rem;
+  right: 15px;
+  /* top: 10px; */
+  min-width: 350px;
+  z-index: 999;
+  text-align: center;
+  border-radius: 0 !important;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.180392156862);
+}
+
+.alert-danger {
+  color: #fbfbfc !important;
+  background-color: #e10418 !important;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #fbfbfc !important;
+  background-color: #00c42d !important;
+  border-color: #c3e6cb;
+}
+
+.red {
+  color: #e10418;
+}
+
+.green {
+  color: #00c42d;
+}
+
+.form-control,
+.btn {
+  border-radius: 0px !important;
+}
+
+.total_label {
+  color: blue;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.admin-content {
+  flex-grow: 1;
+  margin-bottom: 80px;
+}
+
+.admin-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.admin-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  position: relative;
+  margin-left: 260px;
+}
+
+.admin-page-title {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+  margin: 0 0 40px 0;
+  padding: 22px 0;
+  position: relative;
+  z-index: 9;
+}
+
+.admin-page-title h1 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.admin-page-title h1 small {
+  color: #b2b2b2;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .admin-page-title h1 small {
+    display: none;
+  }
+}
+
+.admin-page-title-back {
+  border: 2px solid #eeeeee;
+  border-radius: 50%;
+  color: #d5d5d5;
+  display: inline-block;
+  font-size: 11px;
+  height: 28px;
+  line-height: 20px;
+  margin: 0 13px 0 0;
+  padding: 2px 6px;
+  text-align: center;
+  transition: all .2s ease;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.admin-page-title-back:hover {
+  border-color: #536ed6;
+}
+
+.admin-page-title-actions {
+  float: right;
+}
+
+.admin-page-title-actions .btn {
+  line-height: 32px;
+  font-size: 12px;
+  margin: 3px 10px 0 0;
+}
+
+.admin-page-title-actions .btn:last-child {
+  margin-right: 0;
+}
+
+.admin-sidebar {
+  background-color: #373737;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  z-index: 100;
+}
+
+.admin-sidebar-minimal .admin-sidebar {
+  width: 70px;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar {
+    width: 70px;
+  }
+}
+
+.admin-sidebar-light .admin-sidebar {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+  color: #7f7f7f;
+}
+
+.admin-sidebar h3 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0 18px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.admin-sidebar-light .admin-sidebar h3 {
+  color: #b2b2b2;
+}
+
+.admin-sidebar-light .admin-sidebar h3:after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.admin-sidebar-minimal .admin-sidebar h3 {
+  text-indent: -99999px;
+}
+
+.admin-sidebar-minimal .admin-sidebar h3:after {
+  background-color: rgba(255, 255, 255, 0.3);
+  content: '';
+  display: block;
+  height: 2px;
+  left: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 12px;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar h3 {
+    text-indent: -99999px;
+  }
+
+  .admin-sidebar h3:after {
+    background-color: rgba(255, 255, 255, 0.3);
+    content: '';
+    display: block;
+    height: 2px;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 12px;
+  }
+}
+
+.admin-sidebar .nav {
+  margin: 0 0 10px 0;
+}
+
+.admin-sidebar .nav-item {
+  position: relative;
+}
+
+.admin-sidebar .nav-item.has-sub-menu>.nav-link:after {
+  -webkit-font-smoothing: antialiased;
+  color: rgba(255, 255, 255, 0.8);
+  content: '\f054';
+  float: right;
+  font-family: 'FontAwesome';
+  font-size: 8px;
+  line-height: 32px;
+}
+
+.admin-sidebar-minimal .admin-sidebar .nav-item.has-sub-menu>.nav-link:after {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar .nav-item.has-sub-menu>.nav-link:after {
+    display: none;
+  }
+}
+
+.admin-sidebar-light .admin-sidebar .nav-item.has-sub-menu>.nav-link:after {
+  color: #323232;
+}
+
+.admin-sidebar .nav-item.has-sub-menu:hover ul {
+  opacity: 1;
+  transition: all .4s ease;
+  visibility: visible;
+}
+
+.admin-sidebar .nav-item ul {
+  background-color: #323232;
+  border-radius: 2px;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  padding: 5px 0;
+  position: absolute;
+  right: -204px;
+  top: 7px;
+  visibility: hidden;
+  width: 200px;
+}
+
+.admin-sidebar .nav-item ul:after {
+  background-color: transparent;
+  content: '';
+  display: block;
+  height: 100%;
+  left: -5px;
+  position: absolute;
+  top: 0;
+  width: 5px;
+}
+
+.admin-sidebar .nav-item ul a {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 12px;
+  line-height: 22px;
+  padding: 3px 18px;
+}
+
+.admin-sidebar .nav-item ul a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  padding: 7px 18px;
+  position: relative;
+  transition: all .2s ease;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link {
+  color: #7f7f7f;
+}
+
+.admin-sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.admin-sidebar .nav-link:hover .fa {
+  color: #fff;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link:hover .fa {
+  color: #323232;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #323232;
+}
+
+.admin-sidebar .nav-link.active {
+  color: #fff;
+}
+
+.admin-sidebar .nav-link.active .fa {
+  background-color: #536ed6;
+  color: #fff;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link.active .fa {
+  background-color: #536ed6;
+  color: #fff;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link.active {
+  color: #323232;
+}
+
+.admin-sidebar .nav-link .fa {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  font-size: 13px;
+  height: 34px;
+  line-height: 34px;
+  margin: 0 12px 0 0;
+  vertical-align: middle;
+  text-align: center;
+  transition: all .2s ease;
+  width: 34px;
+}
+
+.admin-sidebar-light .admin-sidebar .nav-link .fa {
+  background-color: #eeeeee;
+  color: #989898;
+}
+
+.admin-sidebar .nav-link span {
+  vertical-align: middle;
+}
+
+.admin-sidebar-minimal .admin-sidebar .nav-link span {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar .nav-link span {
+    display: none;
+  }
+}
+
+.admin-sidebar .nav-link .label {
+  background-color: #F74949;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 9px;
+  float: right;
+  font-weight: 700;
+  padding: 2px 5px;
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  text-transform: uppercase;
+}
+
+.admin-sidebar .nav-link .label-info {
+  background-color: #32A9ED;
+}
+
+.admin-sidebar-header {
+  overflow: hidden;
+}
+
+.admin-sidebar-logo {
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+  height: 60px;
+  margin: 0 0 30px 0;
+  padding: 16px 16px;
+}
+
+.admin-sidebar-logo a {
+  color: #fff;
+  line-height: 1;
+}
+
+.admin-sidebar-logo a:hover {
+  text-decoration: none;
+}
+
+.admin-sidebar-light .admin-sidebar-logo a {
+  color: #323232;
+}
+
+.admin-sidebar-light .admin-sidebar-logo {
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+}
+
+.admin-sidebar-minimal .admin-sidebar-logo {
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar-logo {
+    text-align: center;
+  }
+}
+
+.admin-sidebar-logo img,
+.admin-sidebar-logo svg {
+  float: left;
+  margin: 0 10px 0 0;
+  max-height: 32px;
+  vertical-align: middle;
+  width: auto;
+}
+
+.admin-sidebar-logo img #logo-background,
+.admin-sidebar-logo svg #logo-background {
+  fill: #536ed6;
+}
+
+.admin-sidebar-logo img #Triangle-4,
+.admin-sidebar-logo svg #Triangle-4 {
+  fill: #536ed6;
+}
+
+.admin-sidebar-minimal .admin-sidebar-logo img,
+.admin-sidebar-minimal .admin-sidebar-logo svg {
+  float: none;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+
+  .admin-sidebar-logo img,
+  .admin-sidebar-logo svg {
+    float: none;
+    margin: 0;
+  }
+}
+
+.admin-sidebar-logo-title {
+  font-size: 14px;
+}
+
+.admin-sidebar-logo-title strong {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.admin-sidebar-logo-title span {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 12px;
+  margin: 0px 0 0 0;
+}
+
+.admin-sidebar-light .admin-sidebar-logo-title span {
+  color: #7f7f7f;
+}
+
+.admin-sidebar-minimal .admin-sidebar-logo-title {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar-logo-title {
+    display: none;
+  }
+}
+
+.admin-sidebar-content {
+  flex-grow: 1;
+}
+
+.admin-sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 16px;
+}
+
+.admin-sidebar-light .admin-sidebar-footer {
+  border-top-color: rgba(0, 0, 0, 0.09);
+}
+
+.admin-sidebar-footer span,
+.admin-sidebar-footer strong {
+  display: block;
+  font-size: 12px;
+}
+
+.admin-sidebar-footer strong {
+  font-weight: 400;
+}
+
+.admin-sidebar-footer span {
+  color: #fff;
+}
+
+.admin-sidebar-light .admin-sidebar-footer span {
+  color: #323232;
+}
+
+.admin-sidebar-minimal .admin-sidebar-footer {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar-footer {
+    display: none;
+  }
+}
+
+.admin-footer {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.2);
+  color: #7f7f7f;
+  font-size: 12px;
+  line-height: 52px;
+  bottom: 0;
+  width: 100%;
+}
+
+.admin-footer a {
+  color: #536ed6;
+  text-decoration: underline;
+}

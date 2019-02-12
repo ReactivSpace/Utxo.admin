@@ -1,0 +1,154 @@
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.75rem;
+}
+
+.wrong {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.auth-area {
+  background-color: #fbfbfb;
+  height: 100vh;
+  min-height: 100%;
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.auth-area a {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-area img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 44px;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  margin-top: 80px !important;
+}
+
+.card-signin img {
+  width: 120px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.card-signin ul {
+  list-style: non;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.card-signin a {
+  display: block;
+  /* text-align: center; */
+  color: #5e00ff;
+  text-decoration: underline;
+}
+
+.card-signin p {
+  text-align: center;
+}
+
+.card-signin p a {
+  display: inline;
+  text-decoration: underline;
+}
+
+.card-signin label {
+  margin-bottom: 10px;
+}
+
+.card-signin label a {
+  display: inline;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.card-signin p {
+  text-align: center;
+}
+
+.card-signin button.nav-link {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+  text-decoration: underline;
+  color: #8e2193;
+}
+
+.card-signin button.nav-link:hover {
+  cursor: pointer;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 4px;
+  /*     letter-spacing: .1rem; */
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  border-radius: 4px;
+  padding: 0.75rem;
+  height: auto;
+}

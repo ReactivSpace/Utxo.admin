@@ -1,0 +1,68 @@
+.balances {
+  .b-box {
+    background-color: #cccccc;
+    border-radius: 2px;
+    color: #fff;
+    margin: 0 0 30px 0;
+    padding: 25px 30px;
+    position: relative;
+
+    .stat-box-icon {
+      bottom: 0;
+      color: rgba(255, 255, 255, 0.2);
+      display: block;
+      font-size: 80px;
+      left: 0;
+      position: absolute;
+      transform: translateX(-20%) translateY(20%);
+    }
+    h1,
+    p {
+      display: block;
+      line-height: 1;
+      overflow: hidden;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #fff;
+    }
+    h1 {
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    p {
+      font-weight: 300;
+    }
+  }
+
+  .gray {
+    background-color: #909cab;
+  }
+
+  .green {
+    background-color: #14AD6F;
+  }
+
+  .blue {
+    background-color: #32A9ED;
+  }
+
+  .red {
+    background-color: #F74949;
+  }
+
+  .purple {
+    background-color: #d522cb;
+  }
+
+  .yellow {
+    background-color: #ffba00;
+  }
+
+  .mint {
+    background-color: #0cb0a6;
+  }
+  .dark-green {
+    background-color: #012a36;
+  }
+}

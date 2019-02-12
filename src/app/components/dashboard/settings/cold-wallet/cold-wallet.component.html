@@ -1,0 +1,66 @@
+<div class="admin-page-title">
+  <div class="container-fluid">
+    <app-back-btn></app-back-btn>
+    <h1>Cold Wallets</h1>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<div class="admin-content">
+  <div class="container-fluid">
+
+
+    <div class="table-header clearfix">
+      <div class="table-header-count">
+
+      </div>
+      <!-- /.table-header-count -->
+      <div class="table-header-actions">
+
+        <!--
+            <a href="http://51.75.205.218:3001/coldwallets/add" class="btn btn-primary" style="color:white"><i class="fa fa-plus"></i> Add Cold Wallet</a>
+            -->
+
+
+      </div>
+      <!-- /.table-header-actions -->
+    </div>
+    <!-- /.table-header -->
+    <div class="table-wrapper">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="min-width center">No</th>
+            <th>Coin</th>
+            <th>Address</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+
+            <td class="min-width center id">1</td>
+            <td class="center">
+              <img src="http://51.75.205.218:3001/images/63f9e77f-83d5-4331-a5cd-65f6da0e581a.png" alt="" style="height: 40px; width: auto;">
+            </td>
+            <td>
+              <a href="" target="_blank">
+                RCioVUPmTnK8NrpUB9U3mWefcDiW6nwTQP
+              </a>
+            </td>
+
+            <td class="price">
+              1.03840000
+            </td>
+            <td class="">
+              <a [routerLink]="['modify']" class="btn btn-success pull-right" style="color:white; margin-right: 5px">
+                <i class="fa fa-cogs"></i> Update
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
