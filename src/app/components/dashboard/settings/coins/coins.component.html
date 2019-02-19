@@ -7,7 +7,7 @@
   <!-- /.container-fluid -->
 </div>
 <div class="admin-content">
-  <div class="container-fluid">
+  <div class="container-fluid" *ngIf="Data">
 
 
     <div class="table-header clearfix">
@@ -35,29 +35,31 @@
             <th>Name</th>
             <th>Short Name</th>
             <th>Hot Wallet</th>
-            <th>Cold Wallet</th>
+            <th>Withdraw Wallet</th>
+            <th>Fee</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="min-width center id">1</td>
+          <tr *ngFor="let data of CoinList">
+            <td class="min-width center id">{{data.id}}</td>
             <td class="center">
-              <img src="http://51.75.205.218:3001/images/63f9e77f-83d5-4331-a5cd-65f6da0e581a.png" alt="QTUM">
+              <i class="cc QTUM"></i>
             </td>
-            <td> <a href="#"> QTUM </a> </td>
-            <td> QTUM </td>
-            <td> 1.23245000</td>
-            <td> 1.03840000</td>
+            <td> {{data.name}} </td>
+            <td> {{data.name}} </td>
+            <td> {{data.hotBalance}}</td>
+            <td> {{data.withdrawBalance}}</td>
+            <td> {{data.fee}}</td>
             <td class="">
               <ul>
-                <li> <a [routerLink]="['edit']" class="btn btn-warning pull-right" >
+                <li hidden> <a [routerLink]="['edit']" class="btn btn-warning pull-right">
                     <i class="fas fa-pencil-alt"></i> Edit
                   </a></li>
-                <li> <a [routerLink]="['update']" class="btn btn-primary pull-right">
+                <li> <a [routerLink]="['update',data.id]" class="btn btn-primary pull-right">
                     <i class="fa fa-cogs"></i> Settings
                   </a></li>
-                <li> <button class="btn btn-danger pull-right"><i class="fa fa-times"></i> Delete</button></li>
+                <li hidden> <button class="btn btn-danger pull-right"><i class="fa fa-times"></i> Delete</button></li>
               </ul>
             </td>
           </tr>
@@ -70,3 +72,13 @@
 
 
   </div>
+  <div class="container-fluid" *ngIf="!Data">
+    <app-no-data></app-no-data>
+  </div>
+  <div class="container-fluid" *ngIf="Loading">
+    <app-loading></app-loading>
+  </div>
+  <div class="conatiner-fluid" *ngIf="Error">
+    <app-api-error></app-api-error>
+  </div>
+</div>

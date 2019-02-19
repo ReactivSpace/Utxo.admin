@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <app-back-btn></app-back-btn>
     <h1>Users</h1>
-    <div class="admin-page-title-actions">
+    <div class="admin-page-title-actions" hidden>
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-danger"><i class="fas fa-download"></i> Export All</button>
       </div>
@@ -36,7 +36,7 @@
         <app-no-data></app-no-data>
       </div>
       <div *ngIf="DataArry">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+        <table datatable class="table table-striped dt-responsive nowrap table-hover">
           <thead>
             <tr>
               <th>No</th>
@@ -83,7 +83,7 @@
                   </button>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" [routerLink]="[data.userId]">View Details &nbsp;</a>
-                    <a class="dropdown-item disabled" [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
+                    <a class="dropdown-item disabled" hidden [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
                   </div>
                 </div>
               </td>

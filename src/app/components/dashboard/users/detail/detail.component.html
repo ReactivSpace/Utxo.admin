@@ -1,7 +1,7 @@
 <div class="admin-page-title">
   <div class="container-fluid">
     <app-back-btn></app-back-btn>
-    <h1>User Details - QTUM</h1>
+    <h1>User Details - <app-coin-name></app-coin-name></h1>
     <div class="admin-page-title-actions">
 
 
@@ -12,7 +12,7 @@
         <div class="dropdown-menu">
 
           <a class="dropdown-item  active " href="#">
-            QTUM
+            <app-coin-name></app-coin-name>
           </a>
         </div>
       </div>
@@ -45,19 +45,19 @@
                     <li><strong>Address</strong><span>{{Address}}</span></li>
                     <li><strong>Email Verified</strong>
                       <span class="red" *ngIf="EmailVerified === 0">
-                          <i class="far fa-times-circle"></i>
-                        </span>
-                        <span class="green" *ngIf="EmailVerified === 1">
-                          <i class="far fa-check-circle"></i>
-                        </span>
-                      </li>
+                        <i class="far fa-times-circle"></i>
+                      </span>
+                      <span class="green" *ngIf="EmailVerified === 1">
+                        <i class="far fa-check-circle"></i>
+                      </span>
+                    </li>
                     <li><strong>Login Status</strong>
                       <span class="red" *ngIf="LoginStatus === 0">
-                          <i class="far fa-times-circle"></i>
-                        </span>
-                        <span class="green" *ngIf="LoginStatus === 1">
-                          <i class="far fa-check-circle"></i>
-                        </span>
+                        <i class="far fa-times-circle"></i>
+                      </span>
+                      <span class="green" *ngIf="LoginStatus === 1">
+                        <i class="far fa-check-circle"></i>
+                      </span>
                     </li>
                     <li hidden><strong>Restricted</strong><span>Yes</span></li>
                     <li hidden><strong>Restricted Type</strong><span>No Restriction</span></li>
@@ -69,14 +69,15 @@
                 <div class="overview">
                   <h3 class="page-title-small">&nbsp;</h3>
                   <ul>
-                    <li><strong>Balance</strong><span>{{Balance}} QTUM</span></li>
-                    <li><strong>Total Deposit</strong> <span> QTUM</span></li>
-                    <li><strong>Total Withdraw</strong> <span> QTUM</span></li>
-                    <li><strong>Discrepancy</strong> <span> QTUM</span></li>
-                    <li><strong>Commission</strong> <span>{{Comission}} QTUM</span></li>
-                    <li><strong>Network Fee</strong> <span> QTUM</span></li>
-                    <li><strong>Date Registered</strong> <span>{{RegisterDate | slice:0:10}} {{RegisterDate | slice:11:19}}</span></li>
-                    <li><strong>Last Login</strong> <span>{{LastLoginDate | slice:0:10}} {{LastLoginDate | slice:11:19}}</span></li>
+                    <li><strong>Balance</strong><span>{{Balance}} <app-coin-name></app-coin-name></span></li>
+                    <li><strong>Total Deposit</strong> <span>{{Deposit}} <app-coin-name></app-coin-name></span></li>
+                    <li><strong>Total Withdraw</strong> <span>{{WithDrawal}} <app-coin-name></app-coin-name></span></li>
+                    <li><strong>Discrepancy</strong> <span>{{Discrepancy}} <app-coin-name></app-coin-name></span></li>
+                    <li><strong>Commission</strong> <span>{{Comission}} <app-coin-name></app-coin-name></span></li>
+                    <!-- <li><strong>Network Fee</strong> <span> <app-coin-name></app-coin-name></span></li> -->
+                    <li><strong>Date Registered</strong> <span>{{RegisterDate | slice:0:10}} {{RegisterDate |
+                        slice:11:19}}</span></li>
+                    <!-- <li><strong>Last Login</strong> <span>{{LastLoginDate | slice:0:10}} {{LastLoginDate | slice:11:19}}</span></li> -->
                   </ul>
                 </div>
               </div>
@@ -84,9 +85,56 @@
             <!--  Information  -->
             <div class="clearfix"></div>
 
-            <h3 class="page-title-small">Transactions - <a href="#">{{Email}}</a></h3>
+            <h3 class="page-title-small">Transactions - {{Email}}</h3>
+            <hr>
 
             <!-- table -->
+            <div *ngIf="DataShow">
+              <div *ngIf="!DataArry">
+                <app-no-data></app-no-data>
+              </div>
+              <div *ngIf="DataArry">
+                <table datatable class="table table-striped dt-responsive nowrap table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Sender Address</th>
+                      <th>Receiver Address</th>
+                      <th>Amount</th>
+                      <th>Transaction Type</th>
+                      <th>Fee</th>
+                      <th>Status</th>
+                      <th>Date Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of Data; let i = index">
+                      <td>{{data.id}}
+                        <button type="button" class="btn btn-secondary txid" data-toggle="tooltip" data-placement="right"
+                          [title]="data.txId">
+                          TxID
+                        </button>
+                      </td>
+                      <td>{{data.senderAddress}}</td>
+                      <td>{{data.reciverAddress}}</td>
+                      <td>{{data.amount}}</td>
+                      <td>{{data.transactionType}}</td>
+                      <td>{{data.fee}}</td>
+                      <td>{{data.status}}</td>
+                      <td>{{data.updatedAt | slice:0:10}} {{data.updatedAt | slice:11:19}}</td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+            <div *ngIf="!DataShow && !DataLoaded">
+              <app-loading></app-loading>
+            </div>
+
+            <div *ngIf="DataLoaded && !DataArry">
+              <app-no-data></app-no-data>
+            </div>
           </div>
         </div>
       </div>

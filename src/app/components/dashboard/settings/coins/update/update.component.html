@@ -5,6 +5,7 @@
   </div>
   <!-- /.container-fluid -->
 </div>
+<flash-messages></flash-messages>
 <div class="admin-content">
   <div class="container-fluid">
 
@@ -19,13 +20,13 @@
 
           <div class="col-md-8 col-md-offset-2">
 
-            <form>
+            <form [formGroup]="CoinUpdateForm" novalidate>
 
               <div class="form-group row">
                 <label for="network" class="col-3 col-form-label">Network</label>
                 <div class="col-9">
-                  <input class="form-control" type="text" value="QTUM" id="network" name="network" readonly="readonly">
-                  <input type="hidden" name="coin_id" value="1">
+                  <input class="form-control text-uppercase" type="text" value="{{CoinName}}" id="network" name="network"
+                    readonly="readonly" #coinName>
                 </div>
               </div>
 
@@ -33,7 +34,8 @@
               <div class="form-group row">
                 <label for="address" class="col-3 col-form-label">Address</label>
                 <div class="col-9">
-                  <input class="form-control" type="text" value="RKQqYVBPTVajCzSLk27s5RRV9U5mgGBY4B" id="address" name="address">
+                  <input class="form-control" type="text" formControlName="Address" #address value="{{Address}}" id="address"
+                    name="address">
 
                 </div>
               </div>
@@ -42,38 +44,18 @@
               <div class="form-group row">
                 <label for="Commission" class="col-3 col-form-label">Internal Commission</label>
                 <div class="col-9">
-                  <input class="form-control" type="text" name="commission" id="Commission" placeholder="Commission"
-                    value="0.00020000">
+                  <input class="form-control" type="text" name="commission" formControlName="interCommission" id="Commission"
+                    placeholder="Commission" value="{{InterCommission}}" #intercommission>
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="Commission" class="col-3 col-form-label">External Commission</label>
                 <div class="col-9">
-                  <input class="form-control" type="text" name="external_commission" id="Commission" placeholder="External Commission"
-                    value="0.00020000">
+                  <input class="form-control" type="text" formControlName="ExtCommission" name="external_commission" id="Commission"
+                    placeholder="External Commission" value="{{ExterCommission}}" #extcommission>
                 </div>
               </div>
-
-
-              <div class="form-group row">
-                <label for="Balance" class="col-3 col-form-label">Required Balance</label>
-                <div class="col-9">
-                  <input class="form-control" type="text" id="Balance" name="required_balance" placeholder="Required Balance"
-                    value="0.00000000">
-                </div>
-              </div>
-
-
-              <!--
-                <div class="form-group row">
-                  <label for="Discrepancy" class="col-3 col-form-label">Discrepancy Range</label>
-                  <div class="col-9">
-                    <input class="form-control" type="text" id="Discrepancy" name="discrepancy_range" placeholder="Discrepancy Range" value="0|10">
-                                            </div>
-                </div>
-                -->
-
 
               <div class="form-group row">
                 <label for="Discrepancy" class="col-3 col-form-label">Discrepancy Range</label>
@@ -81,13 +63,15 @@
                   <div class="row">
                     <div class="col-3">
                       <div class="form-group">
-                        <input class="form-control" type="number" name="discrepancy_range_from" placeholder="0" value="0">
+                        <input class="form-control" type="number" formControlName="DisFrom" #maxdiscrepancy name="discrepancy_range_from"
+                          placeholder="0" value="{{MaxDiscrepancy}}">
                         <small id="emailHelp" class="form-text text-muted">From</small>
                       </div>
                     </div>
                     <div class="col-3">
                       <div class="form-group">
-                        <input class="form-control" type="number" name="discrepancy_range_to" placeholder="0" value="10">
+                        <input class="form-control" type="number" formControlName="DisTo" #mindiscrepancy name="discrepancy_range_to"
+                          placeholder="0" value="{{MinDiscrepancy}}">
                         <small id="emailHelp" class="form-text text-muted">TO</small>
                       </div>
                     </div>
@@ -97,20 +81,10 @@
               <div class="form-group row">
                 <label for="MaxWithdraw" class="col-3 col-form-label">Max Withdrawal</label>
                 <div class="col-9">
-                  <div class="row">
-                    <div class="col-3">
-                      <div class="form-group">
-                        <input class="form-control" type="text" id="MaxWithdraw" name="max_amount" placeholder="Maximum "
-                          value="1000.00000000">
-                        <small id="emailHelp" class="form-text text-muted">Per</small>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <input class="form-control" type="text" id="num_day" name="num_day" placeholder="Day" value="1">
-                        <small id="emailHelp" class="form-text text-muted">Day</small>
-                      </div>
-                    </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" id="MaxWithdraw" formControlName="MaxWDPer" #maxwithdraw name="max_amount"
+                      placeholder="Maximum " value="{{MaxWithDraw}}">
+                    <!-- <small id="emailHelp" class="form-text text-muted">Per</small> -->
                   </div>
                 </div>
               </div>
@@ -120,7 +94,8 @@
                 <label for="single_withdraw_limit" class="col-3 col-form-label">Single Withdraw Limit</label>
                 <div class="col-9">
                   <input class="form-control" type="text" id="single_withdraw_limit" name="single_withdraw_limit"
-                    placeholder="Single Withdraw Limit" value="100.00000">
+                    placeholder="Single Withdraw Limit" value="{{SingleWithdraw}}" formControlName="SingleLimit"
+                    #singlewithdraw>
                 </div>
               </div>
 
@@ -128,25 +103,7 @@
                 <label for="minimum_withdraw" class="col-3 col-form-label">Minimum Withdraw</label>
                 <div class="col-9">
                   <input class="form-control" type="text" id="minimum_withdraw" name="minimum_withdraw" placeholder="Minimum Withdraw"
-                    value="0.0000400">
-                </div>
-              </div>
-
-
-              <div class="form-group row">
-                <label for="manual_withdraw" class="col-3 col-form-label">Manual External Withdraw</label>
-                <div class="col-9">
-                  <input class="form-control" type="text" id="manual_withdraw" name="manual_withdraw" placeholder="Manual Withdraw"
-                    value="0.5000000">
-                </div>
-              </div>
-
-
-              <div class="form-group row">
-                <label for="manual_withdraw_internal" class="col-3 col-form-label">Manual Internal Withdraw</label>
-                <div class="col-9">
-                  <input class="form-control" type="text" id="manual_withdraw_internal" name="manual_withdraw_internal"
-                    placeholder="Manual Internal Withdraw" value="0.0000">
+                    value="{{MiniWithDraw}}" formControlName="MinWithdraw" #miniwuthdraw>
                 </div>
               </div>
 
@@ -154,8 +111,8 @@
               <div class="form-group row">
                 <label for="total_confirm" class="col-3 col-form-label">Total Confirmation</label>
                 <div class="col-9">
-                  <input class="form-control" type="text" id="total_confirm" name="total_confirm" placeholder="Total Confirmations"
-                    value="4">
+                  <input class="form-control" type="text" formControlName="TotalConf" #confirmation id="total_confirm"
+                    name="total_confirm" placeholder="Total Confirmations" value="{{Confirmation}}">
                 </div>
               </div>
 
@@ -163,53 +120,32 @@
               <div class="form-group row">
                 <label for="hot_wallet" class="col-3 col-form-label">Hot/Cold/Withdraw Wallet Ratio</label>
                 <div class="col-3">
-                  <input class="form-control" type="text" id="hot_wallet" name="hot_wallet" placeholder="Hot Wallet"
-                    value="20">
+                  <input class="form-control" type="text" id="hot_wallet" formControlName="HotWallet" #hotratio name="hot_wallet"
+                    placeholder="Hot Wallet" value="{{HotRation}}">
                   <small class="form-text text-muted">Hot Wallet Ratio</small>
 
                 </div>
                 <div class="col-3">
-                  <input class="form-control" type="text" id="cold_wallet" name="cold_wallet" placeholder="Cold Wallet"
-                    value="80">
+                  <input class="form-control" type="text" id="cold_wallet" formControlName="ColdWallet" #coldratio
+                    name="cold_wallet" placeholder="Cold Wallet" value="{{ColdRatio}}">
                   <small class="form-text text-muted">Cold Wallet Ratio</small>
 
                 </div>
                 <div class="col-3">
-                  <input class="form-control" type="text" id="cold_wallet" name="cold_wallet" placeholder="Withdraw Wallet"
-                    value="80">
+                  <input class="form-control" type="text" id="cold_wallet" formControlName="WithDrawWallet"
+                    #widthdrawratio name="withdraw_wallet" placeholder="Withdraw Wallet" value="{{WithDrawRatio}}">
                   <small class="form-text text-muted">Withdraw Wallet Ratio</small>
                 </div>
               </div>
-
-
-              <div class="form-group row">
-                <label for="minimum_split" class="col-3 col-form-label">Automatic Withdraw: On/Off</label>
-                <div class="col-1">
-                  <label class="switch">
-                    <input type="checkbox" (click)="TurnOn()" >
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-                <div class="col-8" *ngIf="ShowValue">
-                  <input class="form-control" type="text" id="minimum_split" name="minimum_split" placeholder="Enter Value"
-                    value="100.00000000">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="minimum_split" class="col-3 col-form-label">Minimum Split</label>
-                <div class="col-9">
-                  <input class="form-control" type="text" id="minimum_split" name="minimum_split" placeholder="Minimum Split"
-                    value="100.00000000">
-                </div>
-              </div>
-
-
-
               <hr>
-
+              <!-- [disabled]="CoinUpdateForm.pristine || CoinUpdateForm.invalid"  -->
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
+                <button type="button" (click)="UpdateValues(address.value, intercommission.value,
+                extcommission.value, maxdiscrepancy.value, mindiscrepancy.value,maxwithdraw.value,
+                singlewithdraw.value, miniwuthdraw.value, confirmation.value, hotratio.value, coldratio.value,
+                widthdrawratio.value)"
+                  class="btn btn-primary">Save</button>
+                <!-- <button type="button" class="btn btn-danger">Cancel</button> -->
               </div>
             </form>
           </div>

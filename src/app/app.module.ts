@@ -40,6 +40,7 @@ import { RestrictionComponent } from './components/dashboard/users/restriction/r
 import { LoadingComponent } from './components/helper/loading/loading.component';
 import { NoDataComponent } from './components/helper/no-data/no-data.component';
 import { ApiErrorComponent } from './components/helper/api-error/api-error.component';
+import { CoinNameComponent } from './components/helper/coin-name/coin-name.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ApiErrorComponent } from './components/helper/api-error/api-error.compo
     RestrictionComponent,
     LoadingComponent,
     NoDataComponent,
-    ApiErrorComponent
+    ApiErrorComponent,
+    CoinNameComponent
   ],
   imports: [
     BrowserModule,

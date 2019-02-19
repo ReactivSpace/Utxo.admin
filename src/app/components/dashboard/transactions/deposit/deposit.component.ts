@@ -11,8 +11,8 @@ import { Subject } from 'rxjs';
 })
 export class DepositComponent implements OnInit, OnDestroy {
   dtTrigger: Subject<any> = new Subject();
-  Data: [];
   dtOptions: DataTables.Settings = {};
+  Data: [];
   // tslint:disable-next-line:no-inferrable-types
   TotalUsers: number = 0;
   // tslint:disable-next-line:no-inferrable-types
@@ -22,26 +22,32 @@ export class DepositComponent implements OnInit, OnDestroy {
   // tslint:disable-next-line:no-inferrable-types
   DataLoaded: boolean = false;
   DataArry: boolean;
+  CoinIDObj: { 'coinId': any; };
+  CoinID: string;
+
 
   constructor(private titleService: Title,
   private Api: ApiService) { }
 
   ngOnInit() {
     this.setTitle('Deposit History | Tyslin UTXO');
-    this.GetAll();
+    this.CoinID = localStorage.getItem('CoinID');
+    this.GetAll(this.CoinID);
   }
 
   public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  GetAll() {
+  GetAll(CoinID) {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
       processing: true
     };
-    this.Api.post(environment.GetAllTransaction).subscribe(res => {
+    this.CoinIDObj = { 'coinId': CoinID };
+
+    this.Api.post(environment.DepositTransaction, this.CoinIDObj).subscribe(res => {
       console.log(res);
       if (res.status === true) {
         this.DataLoaded = true;

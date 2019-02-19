@@ -16,6 +16,7 @@ export const environment = {
   GetAllUsers: `${BASE_URL}user/getAll`,
   UserDetail: `${BASE_URL}user/Read`,
   LatestUsers: `${BASE_URL}users/lastRegistered`,
+  UserTrans: `${BASE_URL}transaction/userTransaction`,
 
   // Balances
   ServerBalance: `${BASE_URL}fullNodeBalance`,
@@ -24,10 +25,15 @@ export const environment = {
 
   // Coins
   GetAllCoins: `${BASE_URL}coin/getAll`,
+  CoinRead: `${BASE_URL}coin/Read`,
+  CoinUpdate: `${BASE_URL}coin/Update`,
 
   // Transactions
   GetAllTransaction: `${BASE_URL}transaction/getAll`,
   PendingTransaction: `${BASE_URL}transactions/Pending`,
+  DepositTransaction: `${BASE_URL}transactions/deposit`,
+  WithdrawTransaction: `${BASE_URL}transactions/withdraw`,
+  CommissionTransaction: `${BASE_URL}transactions/commission`,
   Reject: `${BASE_URL}transactions/reject`,
   Approve: `${BASE_URL}transactions/approve`,
   ActionTransaction: `${BASE_URL}sendTransaction`,

@@ -17,4 +17,7 @@ $(document).ready(function () {
     });
   });
 
+  $('[data-toggle="tooltip"]').tooltip()
+  $('.txid').tooltip({ boundary: 'window' })
+
 });

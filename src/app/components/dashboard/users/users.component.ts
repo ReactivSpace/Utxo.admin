@@ -12,8 +12,8 @@ import { Subject } from 'rxjs';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   dtTrigger: Subject<any> = new Subject();
-  Users: [];
   dtOptions: DataTables.Settings = {};
+  Users: any;
   // tslint:disable-next-line:no-inferrable-types
   TotalUsers: number = 0;
   // tslint:disable-next-line:no-inferrable-types

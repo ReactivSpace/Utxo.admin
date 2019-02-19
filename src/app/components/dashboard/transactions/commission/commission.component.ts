@@ -22,26 +22,30 @@ export class CommissionComponent implements OnInit, OnDestroy {
   // tslint:disable-next-line:no-inferrable-types
   DataLoaded: boolean = false;
   DataArry: boolean;
+  CoinID: string;
+  CoinIDObj: { 'coinId': any; };
 
   constructor(private titleService: Title,
     private Api: ApiService) { }
 
   ngOnInit() {
     this.setTitle('Commission History | Tyslin UTXO');
-    this.GetAll();
+    this.CoinID = localStorage.getItem('CoinID');
+    this.GetAll(this.CoinID);
   }
 
   public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  GetAll() {
+  GetAll(CoinID) {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
       processing: true
     };
-    this.Api.post(environment.GetAllTransaction).subscribe(res => {
+    this.CoinIDObj = { 'coinId': CoinID };
+    this.Api.post(environment.CommissionTransaction, this.CoinIDObj).subscribe(res => {
       console.log(res);
       if (res.status === true) {
         this.DataLoaded = true;

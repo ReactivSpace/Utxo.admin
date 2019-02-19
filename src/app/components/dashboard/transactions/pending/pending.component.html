@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <flash-messages></flash-messages>
     <app-back-btn></app-back-btn>
-    <h1>Pending History - QTUM</h1>
+    <h1>Pending History - <app-coin-name></app-coin-name></h1>
     <div class="admin-page-title-actions" hidden>
       <button type="submit" class="btn btn-danger"><i class="fas fa-download"></i> Export All</button>
     </div>
@@ -31,8 +31,8 @@
       <div *ngIf="!DataArry">
         <app-no-data></app-no-data>
       </div>
-      <div *ngIf="DataArry">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+      <div *ngIf="DataArry" class="table-responsive">
+        <table datatable  class="table table-striped dt-responsive nowrap table-hover">
           <thead>
             <tr>
               <th>ID</th>
@@ -40,6 +40,7 @@
               <th>Receiver Address</th>
               <th>Amount</th>
               <th>Fee</th>
+              <th>Transaction Type</th>
               <th>Status</th>
               <th>Date Time</th>
               <th>Actions</th>
@@ -52,8 +53,20 @@
               <td>{{data.reciverAddress}}</td>
               <td>{{data.amount}}</td>
               <td>{{data.fee}}</td>
-              <td>{{data.status}}</td>
-              <td>{{data.timeStamp}}</td>
+              <td>
+                  <span class="green" *ngIf="data.transactionType === 'receive'"><i class="far fa-arrow-alt-circle-down"></i> </span>
+                  <span class="red" *ngIf="data.transactionType === 'send'"><i class="far fa-arrow-alt-circle-up"></i> </span>
+                  <span class="yellow" *ngIf="data.transactionType === 'Internal'"><i class="fas fa-sync-alt"></i></span>
+                <!-- {{data.transactionType}} -->
+
+              </td>
+              <td>
+                <span class="green" *ngIf="data.status === 'Approved'"><i class="far fa-check-circle"></i> </span>
+                <span class="red" *ngIf="data.status === 'Rejected'"><i class="far fa-times-circle"></i> </span>
+                <span class="yellow" *ngIf="data.status === 'Pending'"><i class="far fa-clock"></i> </span>
+                <!-- {{data.status}} -->
+              </td>
+              <td>{{data.createdAt | slice:0:10}} {{data.createdAt | slice:11:19}}</td>
               <td>
                 <div class="table-header-actions">
                   <button type="button" data-toggle="modal" [attr.data-target]="'#SendModal-' + data.id" class="btn btn-primary"><i
@@ -114,6 +127,7 @@
               <th>Receiver Address</th>
               <th>Amount</th>
               <th>Fee</th>
+              <th>Transaction Type</th>
               <th>Status</th>
               <th>Date Time</th>
               <th>Actions</th>
@@ -126,7 +140,7 @@
       <app-loading></app-loading>
     </div>
 
-    <div *ngIf="DataLoaded">
+    <div *ngIf="DataLoaded && !DataArry">
       <app-no-data></app-no-data>
     </div>
   </div>

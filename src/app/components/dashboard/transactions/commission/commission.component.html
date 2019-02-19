@@ -1,8 +1,8 @@
 <div class="admin-page-title">
   <div class="container-fluid">
     <app-back-btn></app-back-btn>
-    <h1>Commission History - QTUM</h1>
-    <div class="admin-page-title-actions">
+    <h1>Commission History - <app-coin-name></app-coin-name></h1>
+    <div class="admin-page-title-actions" hidden>
       <button type="submit" class="btn btn-danger"><i class="fas fa-download"></i> Export All</button>
     </div>
     <!-- /.admin-page-title-actions -->
@@ -18,7 +18,7 @@
       </div>
       <!-- /.table-header-count -->
       <div class="table-header-actions" hidden>
-        <h3>Total Commission: <span class="total_label"> 0.00060000 QTUM</span></h3>
+        <h3>Total Commission: <span class="total_label"> 0.00060000 <app-coin-name></app-coin-name></span></h3>
       </div>
       <!-- /.table-header-actions -->
     </div>
@@ -27,8 +27,8 @@
       <div *ngIf="!DataArry">
         <app-no-data></app-no-data>
       </div>
-      <div *ngIf="DataArry">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+      <div *ngIf="DataArry" class="table-responsive">
+        <table datatable  class="table table-striped dt-responsive nowrap table-hover">
           <thead>
             <tr>
               <th>ID</th>
@@ -70,7 +70,7 @@
       <app-loading></app-loading>
     </div>
 
-    <div *ngIf="DataLoaded">
+    <div *ngIf="DataLoaded && !DataArry">
       <app-no-data></app-no-data>
     </div>
   </div>

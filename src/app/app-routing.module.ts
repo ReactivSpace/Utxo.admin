@@ -45,9 +45,9 @@ const routes: Routes = [
     { path: 'settings', children: [
       { path: 'coins', component: CoinsComponent },
       { path: 'coins/edit', component: EditComponent },
-      { path: 'coins/update', component: UpdateComponent },
+      { path: 'coins/update/:id', component: UpdateComponent },
       { path: 'cold-wallet', component: ColdWalletComponent },
-      { path: 'cold-wallet/modify', component: ModifyComponent }
+      { path: 'cold-wallet/modify/:id', component: ModifyComponent }
     ]},
     // transactions
     { path: 'transactions', redirectTo: 'transactions/deposit' },

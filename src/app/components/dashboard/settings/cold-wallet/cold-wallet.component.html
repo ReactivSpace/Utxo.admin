@@ -38,23 +38,18 @@
         </thead>
         <tbody>
 
-          <tr>
+          <tr *ngFor="let data of CoinList">
 
             <td class="min-width center id">1</td>
             <td class="center">
-              <img src="http://51.75.205.218:3001/images/63f9e77f-83d5-4331-a5cd-65f6da0e581a.png" alt="" style="height: 40px; width: auto;">
+              <i class="cc QTUM"></i>
             </td>
-            <td>
-              <a href="" target="_blank">
-                RCioVUPmTnK8NrpUB9U3mWefcDiW6nwTQP
-              </a>
-            </td>
-
+            <td>{{data.coldWalletAddress}}</td>
             <td class="price">
-              1.03840000
+              {{data.coldBalance}}
             </td>
             <td class="">
-              <a [routerLink]="['modify']" class="btn btn-success pull-right" style="color:white; margin-right: 5px">
+              <a [routerLink]="['modify', data.id]" class="btn btn-success pull-right" style="color:white; margin-right: 5px">
                 <i class="fa fa-cogs"></i> Update
               </a>
             </td>
@@ -62,5 +57,14 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="container-fluid" *ngIf="!Data">
+    <app-no-data></app-no-data>
+  </div>
+  <div class="container-fluid" *ngIf="Loading">
+    <app-loading></app-loading>
+  </div>
+  <div class="conatiner-fluid" *ngIf="Error">
+    <app-api-error></app-api-error>
   </div>
 </div>

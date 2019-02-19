@@ -28,13 +28,16 @@ export class PendingComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   DataLoaded: boolean = false;
   DataArry: boolean;
+  CoinID: string;
+  CoinIDObj: { 'coinId': any; };
   constructor(private titleService: Title,
     private Api: ApiService, private Alert: FlashMessagesService,
     private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setTitle('Pending Transactions | Tyslin UTXO');
-    this.GetAll();
+    this.CoinID = localStorage.getItem('CoinID');
+    this.GetAll(this.CoinID);
     this.CreateForm();
   }
 
@@ -48,8 +51,10 @@ export class PendingComponent implements OnInit {
     });
   }
 
-  GetAll() {
-    this.Api.post(environment.PendingTransaction).subscribe(res => {
+  GetAll(CoinID) {
+    this.CoinIDObj = { 'coinId': CoinID };
+
+    this.Api.post(environment.PendingTransaction, this.CoinIDObj).subscribe(res => {
       console.log(res);
       if (res.status === true) {
         this.DataLoaded = true;
@@ -79,7 +84,7 @@ export class PendingComponent implements OnInit {
        console.log(res);
         if (res.status === true) {
           this.Alert.show(res.msg, { cssClass: 'alert-success', timeout: 3000 });
-           this.GetAll();
+          this.GetAll(this.CoinID);
         } else {
           this.Alert.show(res.msg, { cssClass: 'alert-danger', timeout: 3000 });
         }
@@ -97,7 +102,7 @@ export class PendingComponent implements OnInit {
       console.log(res);
       if (res.status === true) {
         this.Alert.show(res.msg, { cssClass: 'alert-success', timeout: 3000 });
-        this.GetAll();
+        this.GetAll(this.CoinID);
       } else {
         this.Alert.show(res.msg, { cssClass: 'alert-danger', timeout: 3000 });
       }

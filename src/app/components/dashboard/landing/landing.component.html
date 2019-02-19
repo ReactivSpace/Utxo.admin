@@ -1,7 +1,7 @@
 <div class="admin-page-title">
   <div class="container-fluid">
     <app-back-btn></app-back-btn>
-    <h1>Dashboard - QTUM</h1>
+    <h1>Dashboard - <app-coin-name></app-coin-name></h1>
     <div class="admin-page-title-actions">
 
 
@@ -11,7 +11,7 @@
         </button>
         <div class="dropdown-menu">
 
-          <a class="dropdown-item" *ngFor="let data of CoinList" (click)="SetCoin(data.id, data.name)" >
+          <a class="dropdown-item text-uppercase pointer" *ngFor="let data of CoinList" (click)="SetCoin(data.id, data.name)" >
             {{data.name}}
           </a>
         </div>
@@ -108,7 +108,7 @@
     <app-no-data></app-no-data>
   </div>
   <div *ngIf="DataArry">
-      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap table-hover">
+      <table class="table table-striped dt-responsive nowrap table-hover">
           <thead>
             <tr>
               <th>No</th>
@@ -154,8 +154,8 @@
                     Actions
                   </button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" [routerLink]="[data.userId]">View Details &nbsp;</a>
-                    <a class="dropdown-item disabled" disabled [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
+                    <a class="dropdown-item" [routerLink]="['users',data.userId]">View Details &nbsp;</a>
+                    <a class="dropdown-item disabled" hidden disabled [routerLink]="['restriction', data.userId]">Set Restriction &nbsp;</a>
                   </div>
                 </div>
               </td>

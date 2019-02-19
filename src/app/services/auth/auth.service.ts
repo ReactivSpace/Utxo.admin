@@ -15,6 +15,7 @@ export class AuthService {
   Error: string;
   ContactNumber: string;
   LoginObject: { 'email': any; 'password': any; };
+  CoinID: any;
 
   constructor(private _router: Router, private Api: ApiService, private Alert: FlashMessagesService) { }
 
@@ -43,6 +44,7 @@ export class AuthService {
   login(email, password): void {
     this.LoginObject = { 'email': email, 'password': password };
     localStorage.clear();
+    this.DefaultCoin();
     this.Api.post(environment.Login, this.LoginObject).subscribe(res => {
       // console.log('in auth sevice', res.status,res);
       if (res.status === true) {
@@ -57,6 +59,13 @@ export class AuthService {
       } else {
         this.Alert.show('Somthing Went Wrong. Please Try again Later. or <b>Contact Us</b>', { cssClass: 'alert-danger', timeout: 3000 });
       }
+    });
+  }
+
+  DefaultCoin() {
+    this.Api.post(environment.GetAllCoins).subscribe(response => {
+      this.CoinID = response.data[0].id;
+      localStorage.setItem('CoinID', this.CoinID);
     });
   }
 

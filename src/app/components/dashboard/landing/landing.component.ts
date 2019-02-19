@@ -2,18 +2,17 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/services/api/api.service';
 import { environment } from 'src/environments/environment.prod';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit, OnDestroy {
+export class LandingComponent implements OnInit {
   CoinList: any;
   SelectedCoin: string;
   SelectedCoinID: number;
-  Value: number = 1;
+  Value: any = 1;
 
   // balnce
   Loader: boolean = true;
@@ -29,9 +28,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   CoinIDObj: { coinId: any };
 
   // last login
-  dtTrigger: Subject<any> = new Subject();
   Users: [];
-  dtOptions: DataTables.Settings = {};
+
   // tslint:disable-next-line:no-inferrable-types
   TotalUsers: number = 0;
   // tslint:disable-next-line:no-inferrable-types
@@ -42,6 +40,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   DataLoaded: boolean = false;
   // tslint:disable-next-line:no-inferrable-types
   DataArry: boolean = false;
+  NoData: boolean;
+  CoinID: any;
 
   constructor(
     private titleService: Title,
@@ -52,8 +52,9 @@ export class LandingComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setTitle('Dashboard | Tyslin UTXO');
     this.GetAllCoins();
-    this.GetAllBalances(this.Value);
-    this.GetAll(this.Value);
+    this.CoinID = localStorage.getItem('CoinID');
+    this.GetAllBalances(this.CoinID);
+    this.GetAll(this.CoinID);
   }
 
   public setTitle(newTitle: string) {
@@ -63,13 +64,15 @@ export class LandingComponent implements OnInit, OnDestroy {
   SetCoin(CoinID, CoinName) {
     this.Value = CoinID;
     localStorage.setItem('CoinID', CoinID);
-    this.GetAllBalances(this.Value);
-    this.GetAll(this.Value);
+    this.GetAllBalances(CoinID);
+    this.GetAll(CoinID);
   }
 
   GetAllCoins() {
     this.Api.post(environment.GetAllCoins).subscribe(res => {
       if (res.status === true) {
+        // this.CoinID = res.data[0].id;
+        // console.log(res,this.CoinID);
         this.CoinList = res.data;
       } else {
       }
@@ -78,7 +81,7 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   GetAllBalances(CoinID) {
     this.CoinIDObj = { 'coinId': CoinID };
-    console.log(this.CoinIDObj);
+    // console.log(this.CoinIDObj);
 
     this.Api.post(environment.AllBalances, this.CoinIDObj).subscribe(res => {
       console.log(res);
@@ -92,22 +95,18 @@ export class LandingComponent implements OnInit, OnDestroy {
         this.Discrepancy = res.disCreprence;
         this.NetWorkFee = res.NetWorkFee;
         this.WithDrawal = res.widraWallet;
-      } else {
-        // this.l
+      } else if (res.status === false) {
+        this.NoData = true;
       }
     });
   }
 
   GetAll(CoinID) {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      processing: true
-    };
+
     this.CoinIDObj = { 'coinId': CoinID };
 
     this.Api.post(environment.LatestUsers, this.CoinIDObj).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if (res.status === true) {
         this.DataLoaded = true;
         if (res.data.length <= 0) {
@@ -118,7 +117,6 @@ export class LandingComponent implements OnInit, OnDestroy {
           this.DataShow = true;
           this.Users = res.data;
           this.TotalUsers = this.Users.length;
-          this.dtTrigger.next();
         }
       } else if (res.status === false) {
         this.DataShow = false;
@@ -128,7 +126,5 @@ export class LandingComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
-  }
+
 }

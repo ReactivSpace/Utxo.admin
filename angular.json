@@ -37,6 +37,8 @@
               "src/styles.scss",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/simple-line-icons/css/simple-line-icons.css",
+              "node_modules/cryptocoins-icons/webfont/cryptocoins.css",
               "src/assets/css/buttons.css",
               "src/assets/css/tables.css",
               "src/assets/css/form.css",
